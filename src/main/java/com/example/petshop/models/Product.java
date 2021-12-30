@@ -1,8 +1,6 @@
 package com.example.petshop.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,15 +17,25 @@ public class Product {
     }
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "category_id")
     @JsonIgnore
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "pet_id", nullable = false)
+    @JoinColumn(name = "pet_id")
     @JsonIgnore
     private Pet pet;
+    private String image;
+    private Double price;
+    private String description;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -55,5 +63,21 @@ public class Product {
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }

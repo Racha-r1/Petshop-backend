@@ -48,10 +48,36 @@ public class DatabaseSeeder implements CommandLineRunner {
         pet4.setCategories(Arrays.asList(category1, category2));
         Product prod1 = new Product();
         Product prod2 = new Product();
-        prod1.setName("Product 1");
-        prod2.setName("Product 2");
+        prod1.setName("Defu Paté 16x100g Rundvlees");
+        prod1.setImage("https://media.os.fressnapf.com/products/img/1217022/1217022_8817684666069.jpg?t=prod_s");
+        prod1.setPrice(16.99);
+        prod1.setDescription("Biologische premium complete voeding voor volwassen katten. Alle ingrediënten komen uit Duitsland en rechtstreeks van de biologische boer met een bijzonder hoog vleesgehalte.\n" +
+                "\n" +
+                "Biologisch premium volwaardig voer voor volwassen katten.\n" +
+                "\n" +
+                "De ingrediënten van Defu komen allemaal uit Duitsland en strikt biologische landbouw - in voedselkwaliteit.\n" +
+                "\n" +
+                "Defu heeft een vleesgehalte van 96%. Bovendien is het voedsel verfijnd met de wortel van de Lichtyams, dit is een traditioneel Chinees geneesmiddel en is altijd gewaardeerd om zijn ontstekingsremmende werking.\n" +
+                "\n" +
+                "Omdat Defu Organic Premium Whole Food gemaakt is zonder granen, is het ideaal als dagelijkse voeding voor katten die gevoelig zijn voor allergieën.\n" +
+                "\n" +
+                "Andere voordelen in een oogopslag:\n" +
+                "-100% organisch premium volwaardig voedsel.\n" +
+                "-96% vleesgehalte\n" +
+                "-Granen- en glutenvrij met de wortel van de Lichtyams (Chinese geneeskrachtige plant, die een ontstekingsremmende werking kan hebben).\n" +
+                "-vrij van kunstmatige smaakstoffen, kleurstoffen en conserveringsmiddelen\n" +
+                "-Maak in Duitsland");
         prod1.setCategory(category1);
         prod1.setPet(pet);
+        prod2.setName("Dogs Love Dog's Love Adult Vegan BIO BARF 6 x 400 g Greens");
+        prod2.setImage("https://media.os.fressnapf.com/products/img/1274545/1274545_8837776430805.jpg?t=prod_s");
+        prod2.setDescription("Veganistische groente- en fruitmix in 100% biologische voedselkwaliteit van alle grondstoffen.\n" +
+                "Verse groenten en fruit in de ideale verhouding tot elkaar als aanvulling op de DOG'S LOVE BARF-soorten of rauw vlees.\n" +
+                "\n" +
+                "De Dog´s  LoveBio Vegan met groenten en fruit   bevat veel verse groenten en fruit, die in een uitgebalanceerde verhouding zijn om de vleesvoeding optimaal aan te vullen.\n" +
+                "\n" +
+                "De aanwezige mineralen en minerale aarde helpen ook aan de mineralenbehoefte van de hond te voldoen.");
+        prod2.setPrice(15.90);
         prod2.setCategory(category1);
         prod2.setPet(pet2);
 
@@ -66,6 +92,7 @@ public class DatabaseSeeder implements CommandLineRunner {
             petsRepository.save(pet3);
             petsRepository.save(pet4);
         }
+
 
         if (productsRepository.count() == 0) {
             productsRepository.save(prod1);
