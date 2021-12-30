@@ -40,6 +40,12 @@ public class DatabaseSeeder implements CommandLineRunner {
         Pet pet2 = new Pet();
         pet2.setName("Hond");
         pet2.setCategories(Arrays.asList(category1, category2));
+        Pet pet3 = new Pet();
+        pet3.setName("Knaagdier");
+        pet3.setCategories(Arrays.asList(category1, category2));
+        Pet pet4 = new Pet();
+        pet4.setName("Vogel");
+        pet4.setCategories(Arrays.asList(category1, category2));
         Product prod1 = new Product();
         Product prod2 = new Product();
         prod1.setName("Product 1");
@@ -57,6 +63,8 @@ public class DatabaseSeeder implements CommandLineRunner {
         if (petsRepository.count() == 0) {
             petsRepository.save(pet);
             petsRepository.save(pet2);
+            petsRepository.save(pet3);
+            petsRepository.save(pet4);
         }
 
         if (productsRepository.count() == 0) {

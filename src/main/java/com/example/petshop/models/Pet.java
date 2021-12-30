@@ -1,5 +1,7 @@
 package com.example.petshop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,9 +20,11 @@ public class Pet {
             joinColumns = @JoinColumn(name = "pet_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
+    @JsonIgnore
     private List<Category> categories;
 
     @OneToMany(mappedBy = "pet")
+    @JsonIgnore
     private List<Product> products;
 
 

@@ -1,5 +1,7 @@
 package com.example.petshop.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,9 +15,11 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
+    @JsonIgnore
     private List<Product> products;
 
     @ManyToMany(mappedBy = "categories")
+    @JsonIgnore
     private List<Pet> pets;
 
 
