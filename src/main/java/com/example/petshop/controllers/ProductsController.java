@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/products")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductsController {
 
     @Autowired
@@ -31,6 +31,25 @@ public class ProductsController {
     @PreAuthorize("hasAuthority('create:products')")
     public Product addProduct(@RequestBody Product product){
        return productsRepository.save(product);
+    }
+
+    @PutMapping("{id}")
+    @PreAuthorize("hasAuthority('update:products')")
+    public Product updateProduct(@PathVariable long id,@RequestBody Product productData){
+        Optional<Product> product = productsRepository.findById(id);
+        if (product.isPresent()){
+            Product updatedProduct = product.get();
+            updatedProduct.setName(productData.getName());
+            return productsRepository.save(updatedProduct);
+        }
+        // if nothing is updated just return the requestbody data
+        return productData;
+    }
+
+    @DeleteMapping("{id}")
+    @PreAuthorize("hasAuthority('delete:products')")
+    public void deleteProduct(@PathVariable long id){
+        productsRepository.deleteById(id);
     }
 
 }
