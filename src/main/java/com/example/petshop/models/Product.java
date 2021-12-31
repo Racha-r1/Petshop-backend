@@ -18,12 +18,10 @@ public class Product {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    @JsonIgnore
     private Category category;
 
     @ManyToOne
     @JoinColumn(name = "pet_id")
-    @JsonIgnore
     private Pet pet;
     private String image;
     private Double price;
