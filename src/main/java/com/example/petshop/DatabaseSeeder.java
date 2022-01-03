@@ -81,20 +81,13 @@ public class DatabaseSeeder implements CommandLineRunner {
         prod2.setCategory(category1);
         prod2.setPet(pet2);
 
-        if (categoryRepository.count() == 0) {
+        if (categoryRepository.count() == 0 && petsRepository.count() == 0 && productsRepository.count() == 0) {
             categoryRepository.save(category1);
             categoryRepository.save(category2);
-        }
-
-        if (petsRepository.count() == 0) {
             petsRepository.save(pet);
             petsRepository.save(pet2);
             petsRepository.save(pet3);
             petsRepository.save(pet4);
-        }
-
-
-        if (productsRepository.count() == 0) {
             productsRepository.save(prod1);
             productsRepository.save(prod2);
         }

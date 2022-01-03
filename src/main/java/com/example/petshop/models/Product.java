@@ -1,10 +1,12 @@
 package com.example.petshop.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Product")
+@Table(name = "products")
 public class Product {
 
     @Id

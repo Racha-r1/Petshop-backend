@@ -3,6 +3,7 @@ package com.example.petshop.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "items")
 public class Item {
 
     @Id

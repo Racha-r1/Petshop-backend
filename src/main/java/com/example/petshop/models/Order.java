@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -18,7 +19,6 @@ public class Order {
     private Double order_price;
     private String shippingAddress;
     private Date order_date;
-
 
     public long getId() {
         return id;

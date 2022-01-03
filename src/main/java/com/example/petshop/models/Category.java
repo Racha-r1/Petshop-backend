@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Category")
+@Table(name = "categories")
 public class Category {
 
     @Id
@@ -19,7 +19,6 @@ public class Category {
     private List<Product> products;
 
     @ManyToMany(mappedBy = "categories")
-    @JsonIgnore
     private List<Pet> pets;
 
 

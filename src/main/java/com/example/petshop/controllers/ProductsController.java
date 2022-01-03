@@ -40,6 +40,11 @@ public class ProductsController {
         if (product.isPresent()){
             Product updatedProduct = product.get();
             updatedProduct.setName(productData.getName());
+            updatedProduct.setPrice(productData.getPrice());
+            updatedProduct.setImage(productData.getImage());
+            updatedProduct.setDescription(productData.getDescription());
+            updatedProduct.setCategory(productData.getCategory());
+            updatedProduct.setPet(productData.getPet());
             return productsRepository.save(updatedProduct);
         }
         // if nothing is updated just return the requestbody data

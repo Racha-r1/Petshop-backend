@@ -1,7 +1,6 @@
 package com.example.petshop.controllers;
 
 import com.example.petshop.models.Pet;
-import com.example.petshop.models.Product;
 import com.example.petshop.repositories.PetsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

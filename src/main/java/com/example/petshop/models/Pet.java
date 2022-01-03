@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Pet")
+@Table(name = "pets")
 public class Pet {
 
     @Id
@@ -16,7 +16,7 @@ public class Pet {
 
     @ManyToMany
     @JoinTable(
-            name = "pet_category",
+            name = "pets_categories",
             joinColumns = @JoinColumn(name = "pet_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
