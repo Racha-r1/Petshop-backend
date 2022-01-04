@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/addresses")
@@ -18,6 +19,12 @@ public class AddressController {
     @GetMapping
     public List<Address> getAddressesOfUser(@RequestParam(name = "user_email") String user_email){
         return addressRepository.getAddressesOfUser(user_email);
+    }
+
+
+    @GetMapping("{id}")
+    public Optional<Address> getAddressById(@PathVariable long id){
+        return addressRepository.findById(id);
     }
 
     @PostMapping

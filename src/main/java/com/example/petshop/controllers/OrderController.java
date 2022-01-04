@@ -7,9 +7,7 @@ import com.example.petshop.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/orders")
@@ -19,10 +17,18 @@ public class OrderController {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private ItemsRepository itemRepository;
+
     @PostMapping
     public Order addOrder(@RequestBody Order order){
         order.setOrder_date(new Date());
-        return orderRepository.save(order);
+        Order newOrder = orderRepository.save(order);
+        for (Item i : order.getItems()){
+            i.setOrder(newOrder);
+            itemRepository.save(i);
+        }
+        return newOrder;
     }
 
     @GetMapping("{id}")
