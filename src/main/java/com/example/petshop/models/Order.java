@@ -17,7 +17,10 @@ public class Order {
     private List<Item> items;
 
     private Double order_price;
-    private String shippingAddress;
+
+    @OneToOne
+    @JoinColumn(name= "address_id")
+    private Address shipping_address;
     private Date order_date;
 
     public long getId() {
@@ -52,19 +55,19 @@ public class Order {
         this.order_price = order_price;
     }
 
-    public String getShippingAddress() {
-        return shippingAddress;
-    }
-
-    public void setShippingAddress(String shippingAddress) {
-        this.shippingAddress = shippingAddress;
-    }
-
     public Date getOrder_date() {
         return order_date;
     }
 
     public void setOrder_date(Date order_date) {
         this.order_date = order_date;
+    }
+
+    public Address getShipping_address() {
+        return shipping_address;
+    }
+
+    public void setShipping_address(Address shipping_address) {
+        this.shipping_address = shipping_address;
     }
 }

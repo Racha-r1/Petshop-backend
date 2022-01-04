@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/orders")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class OrderController {
 
     @Autowired
@@ -22,6 +23,11 @@ public class OrderController {
     public Order addOrder(@RequestBody Order order){
         order.setOrder_date(new Date());
         return orderRepository.save(order);
+    }
+
+    @GetMapping("{id}")
+    public Optional<Order> getOrderById(@PathVariable long id) {
+        return orderRepository.findById(id);
     }
 
     @GetMapping
