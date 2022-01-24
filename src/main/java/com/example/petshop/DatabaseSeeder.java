@@ -81,6 +81,28 @@ public class DatabaseSeeder implements CommandLineRunner {
         prod2.setCategory(category1);
         prod2.setPet(pet2);
 
+        Product prod3 = new Product();
+        prod3.setName("Interzoo vogelkooi Eliza grijs");
+        prod3.setImage("https://media.os.fressnapf.com/products/img/1012494/1012494_8846034589397.jpg?t=prod_s");
+        prod3.setDescription("Prachtige, huiselijke en moderne kooi voor kleine vogels.\n" +
+                "\n" +
+                "De InterZoo vogelkooi Eliza wordt geleverd met tal van accessoires en hoort daarmee tot de basisuitrusting voor je vogel. De basisuitvoering bestaat uit zitstokken, voer- en waterbakken en biedt zo de gelegenheid om te spelen en te herstellen. Voor een eenvoudige reiniging is een uittrekbare lade geïntegreerd.");
+        prod3.setPrice(49.99);
+        prod3.setCategory(category2);
+        prod3.setPet(pet4);
+
+        Product prod4 = new Product();
+        prod4.setName("JR Farm Nagolade knaagdierbord aardbei 1 x 125 g reep");
+        prod4.setPrice(2.99);
+        prod4.setDescription("Fruitige snack voor knaagdieren.\n" +
+                "Als \"chocolade om aan te knagen\" voor je kleine dier. Fruitige aardbeien zijn een traktatie voor dwergkonijnen, cavia's, ratten, hamsters, muizen en chinchilla's.\n" +
+                "\n" +
+                "Het knaagdierbord is gebakken van heerlijk volkoren deeg en is gemakkelijk in de juiste portiegrootte te snijden.");
+        prod4.setImage("https://media.os.fressnapf.com/products/img/1042082/1042082_8822953531093.jpg?t=prod_s");
+        prod4.setCategory(category1);
+        prod4.setPet(pet3);
+
+
         if (categoryRepository.count() == 0 && petsRepository.count() == 0 && productsRepository.count() == 0) {
             categoryRepository.save(category1);
             categoryRepository.save(category2);
@@ -90,6 +112,8 @@ public class DatabaseSeeder implements CommandLineRunner {
             petsRepository.save(pet4);
             productsRepository.save(prod1);
             productsRepository.save(prod2);
+            productsRepository.save(prod3);
+            productsRepository.save(prod4);
         }
     }
 }
